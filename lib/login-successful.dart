@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spruce_xpress/home-page.dart';
 
 class LoginSuccess extends StatelessWidget {
   const LoginSuccess({Key? key}) : super(key: key);
@@ -14,8 +15,8 @@ class LoginSuccess extends StatelessWidget {
             children: [
               Image.asset(
                 "assets/successful icon.png",
-                width: 120,
-                height: 120,
+                width: 150,
+                height: 150,
               ),
               SizedBox(height: 100),
               Text(
@@ -62,15 +63,3 @@ class LoginSuccess extends StatelessWidget {
   }
 }
 
-// Define the HomePage widget here
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Home Page"),
-      ),
-      // Add your HomePage content here
-    );
-  }
-}

@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 16.0),
+                SizedBox(height: 40.0),
 
                 // Email/Phone Input with green border (hex: 00A651)
 // Email/Phone Input with green border (hex: 00A651)
