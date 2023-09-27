@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:spruce_xpress/login-page.dart';
 
-class UnboardingScreen extends StatelessWidget {
-  const UnboardingScreen({Key? key}) : super(key: key);
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({Key? key}) : super(key: key);
+
+  @override
+  _OnboardingScreenState createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  int currentPage = 0; // Track the current page index
+
+  final List<String> imagePaths = [
+    'assets/Unboard page1.png',
+    'assets/Unboarding-image2.png',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center, // Center the text horizontally
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           // Stack the image on top of the first container
           Stack(
@@ -23,42 +36,57 @@ class UnboardingScreen extends StatelessWidget {
                     bottomRight: Radius.circular(50),
                   ),
                 ),
-                // You can add your content inside this container
               ),
               Container(
-                width: 400, // Set custom width
-                height: 400, // Set custom height
+                width: 500,
+                height: 500,
                 child: Image.asset(
-                  'assets/Unboard page1.png',
-                  fit: BoxFit.cover,
+                  imagePaths[currentPage], // Use the current image path
+                  fit: BoxFit.fill, // Set fit property to fill the container
                 ),
               ),
             ],
           ),
           SizedBox(height: 16.0),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center, // Center the buttons horizontally
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // First small circular button
-              Container(
-                width: 15,
-                height: 15,
-                decoration: BoxDecoration(
-                  color: Color(0xFF00A651), // Change the color as needed
-                  shape: BoxShape.circle,
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    currentPage = 0; // Change to the first image
+                  });
+                },
+                child: Container(
+                  width: 15,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: currentPage == 0
+                        ? Color(0xFF00A651)
+                        : Color(0xFFD7F0E1), // Change color based on current page
+                    shape: BoxShape.circle,
+                  ),
                 ),
-                // You can add an icon or other content here
               ),
-              SizedBox(width: 16.0), // Add space between the buttons
+              SizedBox(width: 16.0),
               // Second small circular button
-              Container(
-                width: 15,
-                height: 15,
-                decoration: BoxDecoration(
-                  color: Color(0xFFD7F0E1), // Change the color as needed
-                  shape: BoxShape.circle,
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    currentPage = 1; // Change to the second image
+                  });
+                },
+                child: Container(
+                  width: 15,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: currentPage == 1
+                        ? Color(0xFF00A651)
+                        : Color(0xFFD7F0E1), // Change color based on current page
+                    shape: BoxShape.circle,
+                  ),
                 ),
-                // You can add an icon or other content here
               ),
             ],
           ),
@@ -112,7 +140,11 @@ class UnboardingScreen extends StatelessWidget {
             padding: EdgeInsets.all(14.0),
             child: ElevatedButton(
               onPressed: () {
-                // Handle login button press
+                // Navigate to the LoginPage when the "Log in" button is pressed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 primary: Color(0xFF00A651), // Background color for login button
@@ -157,4 +189,10 @@ class UnboardingScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: OnboardingScreen(),
+  ));
 }
