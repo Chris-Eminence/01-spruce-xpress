@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spruce_xpress/unboarding_screen.dart'; // Import UnboardingScreen
+import 'package:spruce_xpress/onboarding_screen.dart'; // Import OnboardingScreen
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
     // Example navigation to UnboardingScreen after 2 seconds:
     Future.delayed(Duration(seconds: 7), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => UnboardingScreen()),
+        MaterialPageRoute(builder: (context) => OnboardingScreen()),
       );
     });
 
