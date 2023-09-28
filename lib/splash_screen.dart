@@ -7,7 +7,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Add logic for splash screen animation or delay here
-    // Example navigation to UnboardingScreen after 2 seconds:
+    // Example navigation to OnboardingScreen after 7 seconds:
     Future.delayed(Duration(seconds: 7), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => OnboardingScreen()),
@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // spruce xpress logo
+            // Spruce Xpress logo
             Image.asset(
               'assets/Spruce Express.png',
               width: 300,
