@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spruce_xpress/trackpage.dart';
 import 'package:spruce_xpress/profile-page.dart';
+import 'package:spruce_xpress/order-successful.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,10 +11,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0; // Add this line to track the current tab index
 
+  // Function to navigate to the new page
+  void navigateToOrderPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => OrderPage()), // Navigate to the new page
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: IndexedStack(
         index: _currentIndex,
         children: [
@@ -83,34 +91,50 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 SizedBox(height: 30),
+
+                // Wrap the first row of images with GestureDetector for navigation
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset(
-                      "assets/Frame box.png",
-                      width: 180,
-                      height: 180,
+                    GestureDetector(
+                      onTap: navigateToOrderPage, // Use the common function
+                      child: Image.asset(
+                        "assets/Frame box.png",
+                        width: 180,
+                        height: 180,
+                      ),
                     ),
-                    Image.asset(
-                      "assets/Frame box2.png",
-                      width: 180,
-                      height: 180,
+                    GestureDetector(
+                      onTap: navigateToOrderPage, // Use the common function
+                      child: Image.asset(
+                        "assets/Frame box2.png",
+                        width: 180,
+                        height: 180,
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(height: 20,),
+
+                // Wrap the second row of images with GestureDetector for navigation
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset(
-                      "assets/framebox3.png",
-                      width: 180,
-                      height: 180,
+                    GestureDetector(
+                      onTap: navigateToOrderPage, // Use the common function
+                      child: Image.asset(
+                        "assets/framebox3.png",
+                        width: 180,
+                        height: 180,
+                      ),
                     ),
-                    Image.asset(
-                      "assets/Frame box4.png",
-                      width: 180,
-                      height: 180,
+                    GestureDetector(
+                      onTap: navigateToOrderPage, // Use the common function
+                      child: Image.asset(
+                        "assets/Frame box4.png",
+                        width: 180,
+                        height: 180,
+                      ),
                     ),
                   ],
                 ),
