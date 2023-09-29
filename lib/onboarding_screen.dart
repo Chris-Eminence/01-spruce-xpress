@@ -161,30 +161,31 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
           ),
-          Container(
-            width: 350,
-            height: 85,
-            padding: EdgeInsets.all(14.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Handle signup button press
-              },
-              style: ElevatedButton.styleFrom(
-                primary: Color(0xFFD7F0E1), // Background color for signup button
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0), // Adjust the radius as needed
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(height: 15,),
+              Text(
+                "Don’t have an account?",
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  color: Colors.black,
+                  fontSize: 14.0,
                 ),
               ),
-              child: Text(
-                "Sign up",
+              SizedBox(height: 5.0), // Add spacing between the two texts
+              Text(
+                "Sign up on our website",
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   color: Color(0xFF00A651),
-                  fontSize: 18.0,
+                  fontSize: 16.0,
+                  decoration: TextDecoration.underline, // Add underline decoration
                 ),
               ),
-            ),
-          ),
+            ],
+          )
+
         ],
       ),
     );
